@@ -12,5 +12,12 @@ namespace SmartHomeTests
         private readonly Mock<IDeviceRepository> _deviceRepo = new();
         private readonly Mock<IEnergyPlanRepository> _planRepo = new();
         private readonly Mock<INotificationService> _notify = new();
+        private readonly DeviceService _service;
+
+        public DeviceServiceTests()
+        {
+            _deviceRepo =  new Mock<IDeviceRepository>();
+            _service = new DeviceService(_deviceRepo.Object);
+        }
     }
 }
